@@ -1,0 +1,27 @@
+/*
+  Program Goal:
+  The goal of this program is to control the color of an RGB LED using three analog PWM (Pulse-Width Modulation) signals.
+  In this configuration, we set the red component to full intensity while keeping the green and blue components off, resulting in a solid red color.
+
+  Main Theme:
+  The main theme of this program is to demonstrate RGB LED control with analog signals. We are using three variables 'red,' 'green,' and 'blue' to represent
+  the PWM-capable pins connected to the respective color channels of the RGB LED. 
+  By using analogWrite, we can adjust the intensity of each color channel, allowing us to create various colors by mixing red, green, and blue.
+
+ 
+*/
+
+int red = 12;   // Define the 'red' variable and set it to pin 12
+int green = 9;  // Define the 'green' variable and set it to pin 9
+int blue = 7;   // Define the 'blue' variable and set it to pin 7
+
+void setup() {
+  // No setup code is needed for this example.
+}
+
+void loop() {
+  // Set the red component to full intensity (255), while keeping the green and blue components off (0).
+  analogWrite(red, 255);
+  analogWrite(green, 0);
+  analogWrite(blue, 0);
+}
