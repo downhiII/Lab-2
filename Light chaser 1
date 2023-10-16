@@ -1,6 +1,6 @@
 /*
 Program goal:
-The goal of this program is to demonstrate the use of 5 different pins of the Arduino. The progam turns on the first led and turns the previous one off.
+The goal of this program is to demonstrate the use of 5 different pins of the Arduino. The progam is a sequential LED flasher that restarts from the orignal pin.
 
 Main theme: 
 The main theme of this program is to demonstrate 5 digital output. Here we use digitalWrite to turn on the first pin and then turn off the previous pin with a delay function in between.
