@@ -1,6 +1,7 @@
 /*
   Program Goal:
-  The goal of this program is to read the state of a push button with a pull-up resistor and display its value on the Serial Monitor. The LED turns off or on based on the button state.
+  The goal of this program is to read the state of a push button with a pull-up resistor and display its value on the Serial Monitor. 
+  The LED turns off or on based on the button state.
 
   Main Theme:
   The main theme of this program is digital input with pull-up using a push button. The state of the button is read and displayed on the Serial Monitor. 
