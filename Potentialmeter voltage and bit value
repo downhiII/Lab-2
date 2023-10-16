@@ -1,0 +1,37 @@
+/*
+  Program Goal:
+  The goal of this program is to connect a potentiometer to an Arduino and display both the bit-value and the corresponding voltage value on the Serial Monitor.
+
+  Main Theme:
+  The main theme of this program is analog input with a potentiometer. We read the analog value from the potentiometer, display the bit-value, and then calculate and display the corresponding voltage value.
+
+
+*/
+
+int potentiometer = A0;  // Define the analog pin to which the potentiometer is connected
+
+void setup() {
+
+  Serial.begin(9600);  // Initialize serial communication at 9600 bits
+}
+
+void loop() {
+  // Read the analog value from the potentiometer (0-1023):
+  int sensorValue = analogRead(potentiometer);
+
+
+
+  // Calculate the voltage value (0-5V) from the bit-value (0-1023):
+  float voltage = sensorValue * (5.0 / 1023.0);
+
+  // Print the corresponding voltage value to the Serial Monitor:
+  Serial.print("\tVoltage: ");
+  Serial.print(voltage, 2);  // Display voltage with 2 decimal places
+  Serial.println(" V");
+
+ // Print the bit-value to the Serial Monitor:
+  Serial.print("Bit Value: ");
+  Serial.print(sensorValue);
+  delay(1000);  // Delay for one second between readings for stability
+}
+
