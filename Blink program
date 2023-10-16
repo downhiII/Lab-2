@@ -1,0 +1,23 @@
+/*
+Program goal:
+The goal of this program is to demonstrate the turn on and off of an LED with the Arduino. The LED turns on and off after 1 sec or 1 millisecond.
+
+Main theme: 
+The main theme of this program is to demonstrate the digital output using pinMode and OUTPUT using an LED. Here we use digitalWrite to turn on and off the pin.
+
+ 
+*/
+int led = 9; // Set led as a variable and give the value as 9
+
+void setup() {
+  
+  pinMode(led, OUTPUT); // Set the led pin as an output
+}
+
+
+void loop() {
+  digitalWrite(led, HIGH); // Turn on the led pin
+  delay(1000); // Pause for 1 second 
+  digitalWrite(led, LOW); // Turn off the led pin
+  delay(1000); // Pause for 1 second                      
+}
