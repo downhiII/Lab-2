@@ -1,0 +1,75 @@
+/*
+  Program Goal:
+  The goal of this program is to read an analog voltage from a sensor (such as a potentiometer) and convert it into a bit-value. 
+  The bit-value is then used to control multiple LED indicators, each turning on at different voltage thresholds. The corresponding voltage value is displayed on the Serial Monitor.
+
+  Main Theme:
+  The main theme of this program is analog input and LED control. We read an analog value from a sensor connected to pin A0 and convert it to a voltage. 
+  Depending on the voltage level, we control multiple LEDs (green, yellow, blue, red, white) to indicate different voltage ranges. 
+  The program demonstrates how to read analog values, perform comparisons, and control digital outputs based on those comparisons.
+
+  Author: Your Name
+  Date: October 15, 2023
+*/
+
+float voltage;
+int sensorValue;
+
+int green = 6;
+int yellow = 5;
+int blue = 4;
+int red = 3;
+int white = 2;
+
+void setup() {
+  // Set the pin modes for LED indicators and initialize Serial communication:
+  pinMode(green, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(blue, OUTPUT);
+  pinMode(red, OUTPUT);
+  pinMode(white, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Read the analog value from the sensor (connected to pin A0):
+  sensorValue = analogRead(A0);
+  
+  // Convert the bit-value to a voltage (0-5V):
+  voltage = sensorValue * (5.0 / 1023.0);
+  
+  // Display the voltage on the Serial Monitor:
+  Serial.print("Voltage = ");
+  Serial.println(voltage);
+  
+  // Control the LEDs based on voltage thresholds:
+  if (voltage >= 1.0) {
+    digitalWrite(green, HIGH);
+  } else {
+    digitalWrite(green, LOW);
+  }
+  
+  if (voltage >= 2.0) {
+    digitalWrite(yellow, HIGH);
+  } else {
+    digitalWrite(yellow, LOW);
+  }
+  
+  if (voltage >= 3.0) {
+    digitalWrite(blue, HIGH);
+  } else {
+    digitalWrite(blue, LOW);
+  }
+  
+  if (voltage >= 4.0) {
+    digitalWrite(red, HIGH);
+  } else {
+    digitalWrite(red, LOW);
+  }
+  
+  if (voltage >= 5.0) {
+    digitalWrite(white, HIGH);
+  } else {
+    digitalWrite(white, LOW);
+  }
+}
