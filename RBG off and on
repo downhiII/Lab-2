@@ -1,0 +1,42 @@
+/*
+  Program Goal:
+  The goal of this program is to read the state of a push button with a pull-up resistor using the 'pb' (push button) pin and display its value on the Serial Monitor.
+  Additionally, the program controls the state of the R (red, green, and blue) based on the button state. When the button is not pressed, all the LEDs are turned on, all the LED is turned off. 
+ 
+
+  Main Theme:
+  The main theme of this program is to demonstrate digital input with a pull-up using the 'pb' pin, which is connected to a push button. The state of the button is read and displayed on the Serial Monitor.
+
+
+ 
+*/
+
+int pb = 2;    // Define the 'pb' variable and set it to pin 2 (push button)
+int red = 12;   // Define the 'red' variable and set it to pin 12 (red LED)
+int green = 9; // Define the 'green' variable and set it to pin 9 (green LED)
+int blue = 7;  // Define the 'blue' variable and set it to pin 7 (blue LED)
+
+void setup() {
+  pinMode(pb, INPUT_PULLUP); // Set the 'pb' pin as an input with pull-up resistor
+  pinMode(red, OUTPUT);     // Set the 'red' pin as an output
+  pinMode(green, OUTPUT);   // Set the 'green' pin as an output
+  pinMode(blue, OUTPUT);    // Set the 'blue' pin as an output
+  Serial.begin(9600);      // Initialize the Serial Monitor
+}
+
+void loop() {
+  int sensorVal = digitalRead(pb); // Read the state of the push button
+  Serial.println(sensorVal);      // Display the button state on the Serial Monitor
+
+  if (sensorVal == 1) {   // If the button is not pressed 
+    digitalWrite(red, HIGH);    // Turn on the red LED
+    digitalWrite(green, HIGH);  // Turn on the green LED
+    digitalWrite(blue, HIGH);    // Turn on the blue LED
+  }
+
+  if (sensorVal == 0) {   // If the button is pressed 
+    digitalWrite(red, LOW);    // Turn off the red LED
+    digitalWrite(green, LOW);   // Turn off the green LED
+    digitalWrite(blue, LOW);    // Turn off the blue LED
+  }
+}
