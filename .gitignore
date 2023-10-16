@@ -1,52 +1,46 @@
-# Prerequisites
-*.d
+/*
+Program goal:
+The goal of this program is to demonstrate the use of 5 different pins of the Arduino. The progam turns on the first led and turns the previous one off.
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+Main theme: 
+The main theme of this program is to demonstrate 5 digital output. Here we use digitalWrite to turn on the first pin and then turn off the previous pin with a delay function in between.
 
-# Linker output
-*.ilk
-*.map
-*.exp
+ 
+*/
+int led1 = 12; // Set led1 as a variable and give the value as 12
+int led2 = 9; // Set led2 as a variable and give the value as 9
+int led3 = 7; // Set led3 as a variable and give the value as 7
+int led4 = 4; // Set led4 as a variable and give the value as 4
+int led5 = 1; // Set led5 as a variable and give the value as 1
+void setup() {
+  
+  pinMode(led1, OUTPUT); // Set the led1 pin as an output
+  pinMode(led2, OUTPUT); // Set the led2 pin as an output
+  pinMode(led3, OUTPUT); // Set the led3 pin as an output
+  pinMode(led4, OUTPUT); // Set the led4 pin as an output
+  pinMode(led5, OUTPUT); // Set the led5 pin as an output
+}
 
-# Precompiled Headers
-*.gch
-*.pch
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+void loop() {
+  digitalWrite(led1, HIGH); // Turn on the led pin
+  delay(1000); // Pause for 1 second 
+  digitalWrite(led1, LOW); // Turn off the led pin     
+ 
+  digitalWrite(led2, HIGH); // Turn on the led pin
+  delay(1000); // Pause for 1 second 
+  digitalWrite(led2, LOW); // Turn off the led pin     
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+    digitalWrite(led3, HIGH); // Turn on the led pin
+  delay(1000); // Pause for 1 second 
+  digitalWrite(led3, LOW); // Turn off the led pin    
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+    digitalWrite(led4, HIGH); // Turn on the led pin
+  delay(1000); // Pause for 1 second 
+  digitalWrite(led4, LOW); // Turn off the led pin   
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    digitalWrite(led5, HIGH); // Turn on the led pin
+  delay(1000); // Pause for 1 second 
+  digitalWrite(led5, LOW); // Turn off the led pin
+ 
+}
