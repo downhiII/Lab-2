@@ -7,7 +7,7 @@ The main theme of this program is to demonstrate the digital output using pinMod
 
  
 */
-int led = 9; // Set led as a variable and give the value as 9
+int led = 12; // Set led as a variable and give the value as 12
 
 void setup() {
   
