@@ -1,0 +1,50 @@
+/*
+  Program Goal:
+  The goal of this program is to blink an LED and display its voltage value on the Serial Monitor when a button is pressed. Timing is managed without using delay().
+
+  Main Theme:
+  The main theme of this program is to create a non-blocking LED blink using the millis() function for accurate timing. When a button is pressed, the voltage value of the LED is displayed on the Serial Monitor.
+
+
+*/
+
+int ledPin = 12;  // Define the LED pin (built-in LED is usually on pin 13)
+int buttonPin = 2;  // Define the button pin (change to your pin number)
+int ledState = LOW; // Initial LED state
+unsigned long previousMillis = 0; // Store the last time the LED was updated
+const long interval = 1000; // Blink interval in milliseconds
+bool displayVoltage = 0; // Flag to display LED voltage
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
+  Serial.begin(9600);
+}
+
+void loop() {
+  unsigned long currentMillis = millis();
+
+  // Blink the LED
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+    if (ledState == LOW) {
+      ledState = HIGH;
+    } else {
+      ledState = LOW;
+    }
+    digitalWrite(ledPin, ledState);
+  }
+
+  // Check if the button is pressed
+  if (digitalRead(buttonPin) == LOW) {
+    if (!displayVoltage) {
+      int Value = analogRead(A0); // Read the voltage value from analog pin A0
+      float voltage = (Value / 1023.0) * 5.0; // Convert raw value to voltage 
+      Serial.print(voltage, 2); // Display voltage with 2 decimal places
+      Serial.println(" V");
+      displayVoltage = 1;
+    }
+  } else {
+    displayVoltage = 0; // Reset the flag when the button is released
+  }
+}
