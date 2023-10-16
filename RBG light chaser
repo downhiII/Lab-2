@@ -1,0 +1,37 @@
+
+/*
+Program goal:
+The goal of this program is to demonstrate the use of RGB, red green and blue LED . The RGB LED will cycle through various colors in a sequence.
+
+Main theme: 
+The main theme of this program is to demonstrate 3 digital output. Here we use digitalWrite to turn on the first pin and then turn off the previous pin with a delay function in between.
+
+ 
+*/
+int red = 12; // Set 'red as a variable and give the value as 12
+int green = 9; // Set 'blue' as a variable and give the value as 9
+int blue = 7; // Set 'green' as a variable and give the value as 7
+
+void setup() {
+  
+  pinMode(red, OUTPUT); // Set the 'red' pin as an output
+  pinMode(green, OUTPUT); // Set the 'green'  pin as an output
+  pinMode(blue, OUTPUT); // Set the 'blue'  pin as an output
+
+}
+
+void loop() {
+  digitalWrite(red, HIGH); // Turn on the 'red' LED
+  delay(1000); // Pause for 1 second 
+  digitalWrite(red, LOW); // Turn off the 'red' LED     
+ 
+  digitalWrite(green, HIGH); // Turn on the 'green' LED
+  delay(1000); // Pause for 1 second 
+  digitalWrite(green, LOW); // Turn off the 'green' LED     
+
+    digitalWrite(blue, HIGH); // Turn on the 'blue' LED
+  delay(1000); // Pause for 1 second 
+  digitalWrite(blue, LOW); // Turn off the 'blue' LED    
+
+ 
+}
