@@ -5,7 +5,7 @@ The goal of this program is to demonstrate the use of 5 different pins of the Ar
 Main theme: 
 The main theme of this program is to demonstrate 5 digital output. Here we use digitalWrite to turn on the first pin and then turn off the previous pin with a delay function in between.
 
- 
+  
 */
 int led1 = 12; // Set led1 as a variable and give the value as 12
 int led2 = 9; // Set led2 as a variable and give the value as 9
