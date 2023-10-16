@@ -1,0 +1,36 @@
+/*
+  Program Goal:
+  The goal of this program is to read the state of a push button with a pull-down resistor and display its value on the Serial Monitor.
+  The LED turns off or on based on the button state.
+
+  Main Theme:
+  The main theme of this program is digital input with pull-down using a push button. The state of the button is read and displayed on the Serial Monitor.
+  We also use digital output to control the LED is turned on when the button is pressed and turned off when released.
+
+*/
+
+int button = 7;  // Set button as a variable and give the value as 7
+int led = 9;    // Set led as a variable and give the value as 9
+
+void setup() {
+  pinMode(button, INPUT);   // Set the button pin as an input
+  pinMode(led, OUTPUT);     // Set the LED pin as an output
+  digitalWrite(button, LOW); // Enable the internal pull-down resistor
+  Serial.begin(9600);         // Initialize the Serial Monitor
+}
+
+void loop() {
+  int buttonState = digitalRead(button);  // Read the state of the button
+  
+  // Display the button state on the Serial Monitor
+  
+  if (buttonState == 1) {  // If the button is pressed (HIGH state)
+    digitalWrite(led, HIGH);  // Turn on the LED
+    Serial.println("Not pressed"); // Prints the state of the button
+  } else {
+    digitalWrite(led, LOW);   // Turn off the LED
+    Serial.println("Pressed"); // Prints the state of the button
+
+  }
+
+}
